@@ -8,7 +8,7 @@ app.use(morgan('combined'));
 var articles = {
     'article-one'  : {
     title:'Article one ardra',
-    heading: 'Article-One',
+    heading: 'Article-one',
     date:' sep 26 2016',
     content: `
          <p>
@@ -86,8 +86,8 @@ app.get('/', function (req, res) {
 });
 
 app.get('/:articleName',function(req,res){ 
-    //articleName = article-one
-    //articles[articleName] = {} content object for article one
+    //articleName == article-one
+    //articles[articleName] == {} content object for article one
     var articleName = req.params.articleName;
 res.send(createTemplate(articles[articlName])); 
 });
