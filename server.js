@@ -6,11 +6,11 @@ var app = express();
 app.use(morgan('combined'));
 
 
-var articleone  = {
+var articleOne  = {
     title:'Article one ardra',
     heading: 'Article-One',
     date:' sep 26 2016',
-    content:  
+    content: `
          <p>
                   this is the content of my first article.this is the content of my first article. this is the content of my first article.this is the content of my first article.this is the content of my first article .
          </p>
@@ -21,51 +21,51 @@ var articleone  = {
         
              <p>
                    this is the content of my first article. this is the content of my first article . this is the content of my first article.this is the content of my first article. this is the content of my first article.
-             </p>'
+             </p>`
 }; 
-
-var html template='<html>
- <head> 
-   <title>
-        S{title} 
-   </title>
-    <link href="/ui/style.css" rel="stylesheet" />
-  
-   <meta name="viexport" content="width-device-width,initial-scole-1/">
- </head>
-  <body>
-      <div class="container">
-      <div>
-          <a href="/">home</a>
-      </div>
-          <hr/>
-         <h3>
-            S{heading]
-         </h3>
-         <div> 
-           S{date}
-        
-              </div>
-           
-        <div>
-           S{content}  
-             </div>
-             </div>
-  </body>  
+function createTemplate(data){
+    var title = data.title;
+    var date = data.date;
+    var heading = data.heading;
+    var content = data.content;
+    var htmlTemplate = `
+    <html>
+      <head> 
+        <title>
+           S{title}
+        </title>
+        <meta name="viexport" content="width-device-width,initial-scole-1/">
+        <link href="/ui/style.css" rel="stylesheet" />
+      </head>
+      <body>
+          <div class="container">
+            <div>
+             <a href="/">home</a>
+            </div>
+             <hr/>
+              <h3>
+               S{heading}
+             </h3>
+            <div> 
+               S{date}
+           </div>
+              
+           <div>
+              S{content}
+           </div>
+         </div>
+      </body>  
     
-</html>
-
-
-'; 
-
-
-
+    </html>
+     `;
+  return htmlTemplate;
+} 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
 app.get('/article-one',function(req,res){
-res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));  
+res.send(createTemplate(articleOne)); 
 });
 
 app.get('/article-two',function(req,res){
