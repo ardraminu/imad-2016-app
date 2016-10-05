@@ -57,10 +57,4 @@ button.onclick = function () {
  var names = nameInput.value;
   request.open('GET','http://ardraminu.imad.hasura-app.io/submit-name?name= ' + name, true);
   request.send(null);
-  
-     
-     //capture a list of name and render it as a list
-   
-  
-    
  };
