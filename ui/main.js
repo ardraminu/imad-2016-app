@@ -26,8 +26,7 @@ button.onclick = function () {
   request.send(null);
 };
 //submit name
- var nameInput = document.getElementById("name");
- var names = nameInput.value;
+ 
  var submit = document.getElementById("submit-btn");
  submit.onclick = function(){
        //create a request object
@@ -53,6 +52,8 @@ button.onclick = function () {
        };
       
  //  make a request
+ var nameInput = document.getElementById("name");
+ var names = nameInput.value;
   request.open('GET','http://ardraminu.imad.hasura-app.io/submit-name?name= '+name, true);
   request.send(null);
   
