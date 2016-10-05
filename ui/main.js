@@ -39,7 +39,8 @@ button.onclick = function () {
                if(request.status === 200){
                     
      //capture a list of name and render it as a list
-    var names = ['name1','name2','name3','name4'];
+    var names =request.responseText;
+    names = JSON.parse(names);
     var list = '';
     for(var i=0; i< names.length; i++){
         list += '<li>' + names[i] + '</li>';
@@ -59,13 +60,7 @@ button.onclick = function () {
   
      
      //capture a list of name and render it as a list
-    var names =request.responseText;
-    names=JSON.parse(names);
-    var list = '';
-    for(var i=0; i< names.length; i++){
-        list += '<li>' + names[i] + '</li>';
-    }
-    var ul = document.getElementById('namelist');
-    ul.innerHTML = list;
+   
+  
     
  };
