@@ -94,7 +94,7 @@ app.get('/counter',function (req, res){
   counter = counter + 1;  
 });
 var names = [];
-app.get('/submit-name',function(req, res){ 
+app.get('/submit-name',function(req, res){ //URL:/submit-name?name=something
     var name =req.query.name;
     
     names.push(name);
